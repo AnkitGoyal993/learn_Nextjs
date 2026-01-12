@@ -30,6 +30,9 @@ export default function LoginPage(){
             setLoading(false);
         }
     }
+    const onForgot = async ()=>{
+
+    }
     React.useEffect(()=>{
             if(user.email.length>0 && user.password.length>0){
                 setButtonDisabled(false);
@@ -45,7 +48,8 @@ export default function LoginPage(){
              <label htmlFor="email">email</label>
             <input className='p-2 border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 bg-white text-black' type="text" id='email' value={user.email} onChange={(e)=> setUser({...user,email:e.target.value})} placeholder='email' />
             <label htmlFor="password">password</label>
-            <input className='p-2 border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 bg-white text-black' type="password" id='password' value={user.password} onChange={(e)=> setUser({...user,password:e.target.value})} placeholder='password' />
+            <input className='p-2 border-gray-300 rounded-lg mb-2 focus:outline-none focus:border-gray-600 bg-white text-black' type="password" id='password' value={user.password} onChange={(e)=> setUser({...user,password:e.target.value})} placeholder='password' />
+            <p onClick={onForgot} className=' text-blue-400 hover:font-serif hover:cursor-pointer mb-1'><Link href='/forgot-password'>forgot password</Link></p>
             <button onClick={onLogin} className='p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 '>{buttonDisabled?"NO Login":"Login"}</button>
             <Link href="/signup">Visit SignUp here</Link>
         </div>
